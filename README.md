@@ -1,6 +1,6 @@
 # Predictive Modeling on Airbnb High Booking Rate
 
-#### Team members: Aishwarya Bhangale, Huyen Nguyen, Cindy Chang, Jiakun Luo, Wenjing Cui.
+### Team members: Aishwarya Bhangale, Huyen Nguyen, Cindy Chang, Jiakun Luo, Wenjing Cui.
 
 #### 1. INTRODUCTION
 With more than 7 million listings around the globe and 660000 listings in the U.S, Airbnb’s is built on unbeatable match-making service, namely, providing quality listing recommendations for guests and also helping hosts promote their property. However, recommending listings to guests becomes especially difficult for a brand new listing with very few reviews, ratings, or booking history to refer to. If a host lists a new house, it is also hard for Airbnb to suggest “smart pricing” for hosts due to lack of historical data. Therefore, Airbnb needs to identify which new listing will likely be popular using the basic information of the listing so that they can make listing and pricing recommendations accordingly.
@@ -12,11 +12,15 @@ Before cleaning and transforming the data, we briefly examine the dataset. The c
 
 #### 3. FEATURE ENGINEERING
 I) Data Preprocessing Principles:
+
 ❖ Missing values are imputed with the mean for the numerical variables, while they are replaced with
 the most frequent classes for the categorical variables.
+
 ❖ For numeric variables, the minimum and maximum values are adjusted for the purpose of
 maintaining high quality of data.
+
 ❖ All categorical variables are one-hot encoded.
+
 ❖ Information of all variables is reserved as much as possible.
 
 II) Notable Features:
@@ -42,12 +46,12 @@ density” obtained from external databases to create a new feature, “density�
 column named “density_bins” by cutting column “density” into 10 bins by the magnitude of its values. With
 this new variable, we take into consideration the effect of location and population density to the booking rate.
 
-c. Price*PropertyApartment (top 15 important features) 
+c. PriceXPropertyApartment (top 15 important features) 
 We believe that property type is an important feature because different types of listings, for example, an
 apartment and a tent, will have different booking rates. The category distribution of property_type is very
 skewed, so we group 46 types into 5 major property types based on business sense (Appendix2). Then, we
 create an interaction variable by multiplying propertyApartment with Price to capture the effect of high-end
-and cheap apartments on a high booking rate. The Price*PropertyApartment variable is among the top 15
+and cheap apartments on a high booking rate. The PriceXPropertyApartment variable is among the top 15
 important features in our final model.
 
 d. Amenities
