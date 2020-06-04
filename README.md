@@ -1,6 +1,5 @@
-# airbnb-booking-rate
+# Predictive Modeling on Airbnb High Booking Rate
 
-Predictive Modeling on Airbnb High Booking Rate
 #### Team members: Aishwarya Bhangale, Huyen Nguyen, Cindy Chang, Jiakun Luo, Wenjing Cui.
 
 #### 1. INTRODUCTION
