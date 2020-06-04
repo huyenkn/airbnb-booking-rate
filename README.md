@@ -27,7 +27,7 @@ II) Notable Features:
 A total of 100 features were used, and the full list of features used in our final model can be found in
 Appendix1. The below are notable mentions:
 
-a. Host_response_time(top 10 important features)
+##### a. Host_response_time(top 10 important features)
 The “host_response_time” variable states how
 long it takes a host to reply, which has four levels.
 The level will be higher if a host responds within
@@ -39,14 +39,14 @@ high booking rate. Note that the quickest response
 all of the hosts who have high booking rates
 respond within an hour. This variable ended up as one of the top 10 important features in the XGBoost model.
 
-b. Density bins
+##### b. Density bins
 Location is expected to have an impact on the booking rate, since listings in big cities usually get high
 occupancy rates. We augment pre-existing features “zipcode” with geographical information “population
 density” obtained from external databases to create a new feature, “density”. After that, we create a new
 column named “density_bins” by cutting column “density” into 10 bins by the magnitude of its values. With
 this new variable, we take into consideration the effect of location and population density to the booking rate.
 
-c. PriceXPropertyApartment (top 15 important features) 
+##### c. PriceXPropertyApartment (top 15 important features) 
 We believe that property type is an important feature because different types of listings, for example, an
 apartment and a tent, will have different booking rates. The category distribution of property_type is very
 skewed, so we group 46 types into 5 major property types based on business sense (Appendix2). Then, we
@@ -54,7 +54,7 @@ create an interaction variable by multiplying propertyApartment with Price to ca
 and cheap apartments on a high booking rate. The PriceXPropertyApartment variable is among the top 15
 important features in our final model.
 
-d. Amenities
+##### d. Amenities
 The “amenities” column entails amenities that the hosts provide for guests in the listings, and we expect
 that guests prefer listings with more amenities rather than those with less facilities as well as services.
 From the boxplot, the mean of the total number of listings with lower booking rate is lower than those with
@@ -70,19 +70,19 @@ on the type of traveler. New amenities’ features and further
 analysis are attached at the Appendix 3, and the further analysis some of which are important features in the
 final model.
 
-e. Description_wcount(top 10 important features)
+##### e. Description_wcount(top 10 important features)
 How detailed the listing descriptions written by the hosts are and how much information they reveal
 help guests decide to book or not. We use the number of word count of listing description to measure
 its detailedness.
 
-f. Transit--->Flexible (top 10 important features)
+##### f. Transit--->Flexible (top 10 important features)
 The transit column is the text variable in which hosts integrate public transit options around the living place. In
 order to quantify the traffic accessibility, the number of keywords related to public transport, including “bike”,
 “bus”, “subway”, “train”, “transportation”, “metro” and “line” is recorded in a new variable named “flexible”.
 The new feature serves for people out there who travel without their own vehicle and whether the living place
 is reasonably accessible by public transport turns into an assignable factor in their booking decisions.
 
-g. Neighbourhood
+##### g. Neighbourhood
 The “neighborhoods_overview” column consists of detailed descriptions of the listings’ surroundings.
 Information such as location, access to transportation and nearby buildings are included in it. We separate the
 effect of whether a listing is nearby restaurants and whether it is close to the city center by creating two binary
@@ -90,7 +90,7 @@ variables: The neighbourhood_restaurant variable and the city_centrality variabl
 The x-squared of the neighbourhood_restaurant is 603.72 and the x-squared of the city_centrality is 356.73,
 so two variables associated with neighbourhood are useful in determining whether a listing is highly booked.
 
-h. Availability(top 10 important features)
+##### h. Availability(top 10 important features)
 There are 4 variables associated with availability of an Airbnb
 listing in the dataset- availability_30, availability_60,
 availability_90, availability_365. We feature engineered these four
@@ -109,10 +109,10 @@ limitations(each run takes too long), we do not hold out a test data to test our
 class, high_booking_rate=0, as our baseline model prediction and it resulted in a 0.744 accuracy.
 There are three models that we experimented with, and the reasons of choosing them are as follows:
 
-1. Logistic Regression Model: Basic and quick to run for binary classification problems.
-2. Random Forest Model: A standard ensemble classification approach that is known to be suitable for
+1. **Logistic Regression Model**: Basic and quick to run for binary classification problems.
+2. **Random Forest Model**: A standard ensemble classification approach that is known to be suitable for
 data with complex features. Less likely to overfit.
-3. XGBoost Model: A model that can reduce bias and is known for its good performance.
+3. **XGBoost Model**: A model that can reduce bias and is known for its good performance.
 The first model that we experimented with is the logistic regression model. With a validation set
 accuracy of 0.7929503 at an optimum cutoff of 0.4648672 , the logistic regression model beated the baseline
 model, but we believe there could be even better models. So, we decided to pursue models better suited for
@@ -123,11 +123,17 @@ we find that logistic regression is outperformed by the other two. We believe it
 is better suited for smaller datasets and that its linear boundary does not classify well in our dataset.
 The second model we thus tried is the random forest model. Following are the reasons we selected this
 model to experiment with next:
+
 ❖ It is not affected by multicollinearity between the feature variables
+
 ❖ It creates decorrelated decision trees with respect to the randomness in its algorithm
+
 ❖ It is far easier to tune than any other ensemble model
+
 ❖ It is not affected by too many binary feature variables in the training set
+
 ❖ It is unaffected by over-fitting if the parameters are tuned properly.
+
 With a number of features randomly sampled at each split at an optimal value of 18, our random forest
 model yielded a validation accuracy of 0.8380622. We used “tuneRF” function in “randomForest” library to
 tune the “mtry” variable. For the rest of the variables, we did not have enough computation power at hand or
