@@ -1,17 +1,17 @@
 # airbnb-booking-rate
 
 Predictive Modeling on Airbnb High Booking Rate
-Aishwarya Bhangale, Huyen Nguyen, Cindy Chang, Jiakun Luo, Wenjing Cui
+#### Aishwarya Bhangale, Huyen Nguyen, Cindy Chang, Jiakun Luo, Wenjing Cui
 
-1.INTRODUCTION
+#### 1.INTRODUCTION
 With more than 7 million listings around the globe and 660000 listings in the U.S, Airbnb’s is built on unbeatable match-making service, namely, providing quality listing recommendations for guests and also helping hosts promote their property. However, recommending listings to guests becomes especially difficult for a brand new listing with very few reviews, ratings, or booking history to refer to. If a host lists a new house, it is also hard for Airbnb to suggest “smart pricing” for hosts due to lack of historical data. Therefore, Airbnb needs to identify which new listing will likely be popular using the basic information of the listing so that they can make listing and pricing recommendations accordingly.
 
 This study aims to help Airbnb build a machine learning model to predict whether a listing will have a high booking rate(popular) or not by using features such as number of bathrooms, property type, room type, and etc. Three types of machine learning algorithms: logistic regression, random forest, and XGBoost are compared. The study uses accuracy as the metric to determine the best model, which is the XGBoost model.
 
-2.EDA
+#### 2.EDA
 Before cleaning and transforming the data, we briefly examine the dataset. The correlation matrix of numerical variables suggests that accommodates, beds, guests_included might be highly correlated to the label variable, high_booking_rate . Host_listings_count and host_total_listings are highly correlated, so we drop host_total_listings from our model. Availability variables are highly correlated with each other, thus in the feature engineering section, we extract their individual effects by subtracting overlapping availability time windows.
 
-3.FEATURE ENGINEERING
+#### 3.FEATURE ENGINEERING
 I) Data Preprocessing Principles:
 ❖ Missing values are imputed with the mean for the numerical variables, while they are replaced with
 the most frequent classes for the categorical variables.
@@ -154,7 +154,7 @@ We notice that certain new variables we created such as location related feature
 features, and description word count are very important in the XGBoost classification model. So, had we not
 conducted feature engineering of these variables, our accuracy might not be as high.
 
-4. CONCLUSION
+#### 4. CONCLUSION
 The model with the highest accuracy is the XGboost model. We suggest that Airbnb leverage
 this classification model to identify whether a new listing will have high booking rates or not. Using
 this information, Airbnb can rank a new listing higher in their searching system if they predict that this
