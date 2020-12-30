@@ -1,7 +1,5 @@
 # Predictive Modeling on Airbnb High Booking Rate
 
-### Team members: Aishwarya Bhangale, Huyen Nguyen, Cindy Chang, Jiakun Luo, Wenjing Cui.
-
 #### 1. INTRODUCTION
 With more than 7 million listings around the globe and 660000 listings in the U.S, Airbnb’s is built on unbeatable match-making service, namely, providing quality listing recommendations for guests and also helping hosts promote their property. However, recommending listings to guests becomes especially difficult for a brand new listing with very few reviews, ratings, or booking history to refer to. If a host lists a new house, it is also hard for Airbnb to suggest “smart pricing” for hosts due to lack of historical data. Therefore, Airbnb needs to identify which new listing will likely be popular using the basic information of the listing so that they can make listing and pricing recommendations accordingly.
 
@@ -181,3 +179,5 @@ conditions of the property are not as ideal, at least the host can alter their p
 the rental market. The prediction of a listing having a high booking rate or not is an indicator that
 Airbnb can use in various situations to improve the user experience for guests and hosts alike. Thus, we
 highly recommend Airbnb to take advantage of our prediction model in their system.
+
+##### Team members: Aishwarya Bhangale, Huyen Nguyen, Cindy Chang, Jiakun Luo, Wenjing Cui.
