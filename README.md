@@ -10,13 +10,9 @@ Before cleaning and transforming the data, we briefly examine the dataset. The c
 
 ### 3. FEATURE ENGINEERING
 I) Data Preprocessing Principles:
-
 ❖ Missing values are imputed with the mean for the numerical variables, while they are replaced with the most frequent classes for the categorical variables.
-
 ❖ For numeric variables, the minimum and maximum values are adjusted for the purpose of maintaining high quality of data.
-
 ❖ All categorical variables are one-hot encoded.
-
 ❖ Information of all variables is reserved as much as possible.
 
 II) Notable Features:
@@ -70,13 +66,9 @@ When comparing the accuracy of the logistic regression model to that of random f
 The second model we thus tried is the random forest model. Following are the reasons we selected this model to experiment with next:
 
 ❖ It is not affected by multicollinearity between the feature variables
-
 ❖ It creates decorrelated decision trees with respect to the randomness in its algorithm
-
 ❖ It is far easier to tune than any other ensemble model
-
 ❖ It is not affected by too many binary feature variables in the training set
-
 ❖ It is unaffected by over-fitting if the parameters are tuned properly.
 
 With a number of features randomly sampled at each split at an optimal value of 18, our random forest model yielded a validation accuracy of 0.8380622. We used “tuneRF” function in “randomForest” library to tune the “mtry” variable. For the rest of the variables, we did not have enough computation power at hand or
@@ -86,9 +78,7 @@ With the application of the ROC curve, our XGboost model yielded a best validati
 
 With respect to the tuning process, following is the way in which we tuned our respective models:
 ❖ Logistic Regression : Use of library “ROCR” to find the optimal point where accuracy becomes constant and does not increase further. Plotting a graph of TPR,TNR and accuracy against cutoff yielded a clear result as to what the optimal value should be.
-
 ❖ Random Forest : Use of “tuneRF” method in “randomForest” library that calculates the optimal value of “mtry” variable ( number of variables randomly sampled at each split)
-
 ❖ XGBoost : Use of inbuilt “xgb.cv” function to tune general parameters(booster,nthread), booster parameters(nrounds,eta,gamma, max_depth, lambda, alpha) and learning task parameters(Objective, eval_metric) to finalize the value of hyper parameter.
 
 Below is our feature importance graph of the XGboost model:
